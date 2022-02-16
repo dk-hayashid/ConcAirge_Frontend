@@ -13,6 +13,19 @@ import Button from '@mui/material/Button';
 
 
 
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import Radio from '@mui/material/Radio';
+
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+
+
+
 
 function Form(props) {
     const [user, setUser] = useState({ age: "34", height: "173", weight: "87.4", sex: "male", fashion: "" });
@@ -24,7 +37,8 @@ function Form(props) {
     }
     function handleSubmit(e) {
         e.preventDefault();
-        postForm();
+        console.log(user);
+        // postForm();
     }
 
     function postForm() {
