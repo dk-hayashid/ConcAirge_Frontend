@@ -1,30 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
 import Radio from '@mui/material/Radio';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-
-
-
-import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import Radio from '@mui/material/Radio';
-
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-
-
 
 
 function Form(props) {
@@ -33,12 +17,10 @@ function Form(props) {
 
     function handleChange(e) {
         setUser({ ...user, [e.target.name]: e.target.value });
-        console.log(user);
     }
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(user);
-        // postForm();
+        postForm();
     }
 
     function postForm() {
