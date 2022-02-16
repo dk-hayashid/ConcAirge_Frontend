@@ -5,12 +5,13 @@ import {
   Route
 } from "react-router-dom";
 import './App.css';
-import Header from './components/Header';
+import ResponsiveAppBar from './components/Header';
 import Home from "./components/Home";
 import Map from "./components/Map";
 import Form from "./components/Form";
 import Footer from './components/Footer';
 import Page404 from './components/Page404';
+import HideAppBar from './components/Scroll';
 
 
 function App(props) {
@@ -27,7 +28,7 @@ function App(props) {
     <body>
       <main>
         <BrowserRouter>
-          <Header />
+          <ResponsiveAppBar />
           <Routes>
             <Route exact path="/" element={<Home changeComTem={changeComTem} />} />
             <Route

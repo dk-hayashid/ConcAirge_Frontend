@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import Radio from '@mui/material/Radio';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+
+
 
 
 function Form(props) {
@@ -9,12 +20,13 @@ function Form(props) {
 
     function handleChange(e) {
         setUser({ ...user, [e.target.name]: e.target.value });
+        console.log(user);
     }
     function handleSubmit(e) {
         e.preventDefault();
         postForm();
     }
-    
+
     function postForm() {
         // TODO : backendのURLと合わせる 
         const url = 'http://127.0.0.1:5000/post';
@@ -23,53 +35,87 @@ function Form(props) {
         };
         console.log(user);
         axios.post(url, data)
-        .then(
-            response => {
-                console.log(response.data);
-                props.changeComTem(response.data['ComfortTemperature']);
-                props.changeMap(response.data['Map']);
-            });
+            .then(
+                response => {
+                    console.log(response.data);
+                    props.changeComTem(response.data['ComfortTemperature']);
+                    props.changeMap(response.data['Map']);
+                });
         history('/map');
     }
 
     return (
-        <form class='myForm'>
-            <label for='age'>Age</label>
-            <input
-                type='text'
-                id='age'
-                name='age'
-                placeholder='Eg. 34'
-                onChange={handleChange}
-                required
-            />
-            <label for='height'>Height / cm</label>
-            <input
-                type='text'
-                id='height'
-                name='height'
-                // value='173'
-                placeholder='Eg. 173'
-                onChange={handleChange}
-            />
-            <label for='weight'>Weight / kg</label>
-            <input
-                type='text'
-                id='weight'
-                name='weight'
-                // value='87.4'
-                placeholder='Eg. 87.4'
-                onChange={handleChange}
-            />
-            <fieldset onChange={handleChange}>
-                <legend>What is your biological gender?</legend>
-                <label> <input type='radio' name='sex' id='male' required checked value='male' /> Male </label>
-                <label> <input type='radio' name='sex' id='female' required value='female' /> Female </label>
-            </fieldset>
-            <button type="submit" onClick={handleSubmit}>
-                Register
-            </button>
-        </form>
+        <Container maxWidth="md" style={{ backgroundColor: 'green' }} sx={{ marginTop: 20, }}>
+            <Grid container spacing={5} alignItems="center" justifyContent="center">
+                <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
+                    <Typography variant="h5" margin="normal" sx={{ m: 0 }}>年齢</Typography>
+                </Grid>
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}
+                >
+                    <TextField
+                        required
+                        fullWidth
+                        id="age"
+                        name="age"
+                        label="年齢を入力してください。"
+                        autoFocus
+                        onChange={handleChange}
+                        style={{ backgroundColor: 'yellow' }}
+                    />
+                </Grid>
+                <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
+                    <Typography variant="h5" margin="normal" sx={{ l: 0 }}>身長</Typography>
+                </Grid>
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}
+                >
+                    <TextField
+                        required
+                        fullWidth
+                        id="height"
+                        label="身長[cm]を入力してください。"
+                        name="height"
+                        onChange={handleChange}
+                        autoFocus
+                        style={{ backgroundColor: 'yellow' }}
+                    />
+                </Grid>
+                <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
+                    <Typography variant="h5" margin="normal" sx={{ l: 0 }}>体重</Typography>
+                </Grid>
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}
+                >
+                    <TextField
+                        // margin="normal"
+                        required
+                        fullWidth
+                        id="weight"
+                        label="体重[kg]を入力してください。"
+                        name="weight"
+                        onChange={handleChange}
+                        autoFocus
+                        style={{ backgroundColor: 'yellow' }}
+                    />
+                </Grid>
+
+                <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
+                    <Typography variant="h5" margin="normal" sx={{ l: 0 }}>性別</Typography>
+                </Grid>
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}
+                >
+                    <RadioGroup
+                        row
+                        aria-labelledby="demo-row-radio-buttons-group-label"
+                        name="sex"
+                        onChange={handleChange}
+                    >
+                        <FormControlLabel value="male" control={<Radio />} label="男性" />
+                        <FormControlLabel value="female" control={<Radio />} label="女性" />
+                    </RadioGroup>
+                </Grid>
+                <Grid item style={{ backgroundColor: '#e91e63' }}
+                ><Button variant="contained" size="large"　onClick={handleSubmit}>送信</Button></Grid>
+            </Grid>
+        </Container>
     )
 }
 
