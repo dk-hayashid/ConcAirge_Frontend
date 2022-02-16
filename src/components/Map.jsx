@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export default function Map(props){
-    const Base64 = ({ data }) => <img src={`data:image/jpeg;base64,${data}`} height="220px"/>
+    const Base64 = ({ data }) => <img src={`data:image/jpeg;base64,${data}`} width="100px"/>
     return (
         <form class="recommend">   
 
