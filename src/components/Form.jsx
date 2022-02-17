@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BasicTabs from './tabs'
+import Stack from '@mui/material/Stack';
 
 
 function Form(props) {
@@ -34,6 +36,8 @@ function Form(props) {
 
     return (
         <form class='myForm'>
+            <Stack spacing={10}>
+            <div>
             <label for='age'>Age</label>
             <input
                 type='text'
@@ -61,14 +65,25 @@ function Form(props) {
                 placeholder='Eg. 87.4'
                 onChange={handleChange}
             />
+            </div>
+            <div>
             <fieldset onChange={handleChange}>
                 <legend>What is your biological gender?</legend>
                 <label> <input type='radio' name='sex' id='male' required checked value='male' /> Male </label>
                 <label> <input type='radio' name='sex' id='female' required value='female' /> Female </label>
             </fieldset>
+            </div>
+            
+            <div>
+            <BasicTabs />
+            </div>
+            
+            <div>
             <button type="submit" onClick={handleSubmit}>
                 Register
             </button>
+            </div>
+            </Stack>
         </form>
     )
 }
