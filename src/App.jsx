@@ -1,3 +1,5 @@
+
+
 import { React, useState } from 'react';
 import {
   BrowserRouter,
@@ -11,7 +13,7 @@ import Map from "./components/Map";
 import Form from "./components/Form";
 import Footer from './components/Footer';
 import Page404 from './components/Page404';
-import HideAppBar from './components/Scroll';
+//import HideAppBar from './components/Scroll';
 
 
 function App(props) {
