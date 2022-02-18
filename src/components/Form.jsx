@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
@@ -13,7 +13,7 @@ import Button from '@mui/material/Button';
 
 function Form(props) {
     const [user, setUser] = useState({ age: "34", height: "173", weight: "87.4", sex: "male", fashion: "" });
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     function handleChange(e) {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -37,7 +37,7 @@ function Form(props) {
                     props.changeComTem(response.data['ComfortTemperature']);
                     props.changeMap(response.data['Map']);
                 });
-        history('/map');
+        navigate('/map');
     }
 
     return (
@@ -109,7 +109,7 @@ function Form(props) {
                     </RadioGroup>
                 </Grid>
                 <Grid item style={{ backgroundColor: '#e91e63' }}
-                ><Button variant="contained" size="large"　onClick={handleSubmit}>送信</Button></Grid>
+                ><Button variant="contained" size="large" onClick={handleSubmit}>送信</Button></Grid>
             </Grid>
         </Container>
     )
