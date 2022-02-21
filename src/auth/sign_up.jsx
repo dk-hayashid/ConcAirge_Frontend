@@ -54,7 +54,7 @@ export default function Signup() {
       <Typography variant='h3' align="center">サインアップ</Typography>
       <Grid container spacing={5} alignItems="center" justifyContent="center">
         <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
-          <Typography variant="h5" margin="normal" sx={{ m: 0 }}>📧</Typography>
+          <Typography variant="h5" align="center">📧</Typography>
         </Grid>
         <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}>
           <TextField
@@ -70,7 +70,7 @@ export default function Signup() {
           />
         </Grid>
         <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
-          <Typography variant="h5" margin="normal" sx={{ m: 0 }}>🔓</Typography>
+          <Typography variant="h5" align="center">🔓</Typography>
         </Grid>
         <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}>
           <TextField
