@@ -12,7 +12,6 @@ import Footer from './components/Footer';
 import Page404 from './auth/page404';
 import SignIn from './auth/sign_in';
 import Signup from './auth/sign_up';
-import SignOut from './auth/sign_out';
 import Verification from './auth/verification';
 
 
@@ -39,7 +38,6 @@ function App(props) {
             <Routes>
               <Route path="/" element={<SignIn setToken={setToken} />} />
               <Route path='/auth/sign_up' element={<Signup />} />
-              <Route path='/auth/sign_out' element={<SignOut />} />
               <Route path='/auth/verification' element={<Verification />} />
               <Route path="*" element={<Page404 />} />
             </Routes>
