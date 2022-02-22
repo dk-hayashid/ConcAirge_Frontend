@@ -73,7 +73,7 @@ const ResponsiveAppBar = (props) => {
         <React.Fragment>
             <CssBaseline />
             <HideOnScroll {...props}>
-                <AppBar>
+                <AppBar sx={"background-color:#5F9EA0;"}>
                     <Container maxWidth="xl">
                         <Toolbar disableGutters>
                             <Typography
@@ -85,7 +85,9 @@ const ResponsiveAppBar = (props) => {
                                 ConcAirge
                             </Typography>
 
-                            <Box sx={{ flexGrow: 1, display: { sm: 'flex', md: 'none' } ,backgroundColor: 'primary.dark'}}>
+                            {/* backgroundColor: 'primary.dark' */}
+
+                            <Box sx={{ flexGrow: 1, display: { sm: 'flex', md: 'none' } ,backgroundColor:'#5F9EA0'}}>
                                 <IconButton
                                     size="large"
                                     aria-label="account of current user"

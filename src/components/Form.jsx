@@ -16,7 +16,8 @@ import {
     responsiveFontSizes,
     ThemeProvider,
   } from '@mui/material/styles';
-
+import InputAdornment from '@mui/material/InputAdornment';
+import Box from '@mui/material/Box';
 
 let theme = createTheme({
     typography: {
@@ -143,11 +144,12 @@ function Form(props) {
 
       色は下の変数で変更しよう。
     */
-    const myitemcolor='#00CED1';
+    const myitemcolor='#54BAB9';
     const mybackgroundcolor='#FBF8F1';
     const mytextboxcolor='F6F6F6';
 
-    //myitemcolor   #26C6DA #54BAB9 #00CED1
+    //myitemcolor   #26C6DA 
+    //このどっちか　#54BAB9 #00CED1
     // #E0F7FA
     
     
@@ -156,8 +158,15 @@ function Form(props) {
         <Container maxWidth="md" style={{ backgroundColor: mybackgroundcolor }} sx={{ marginTop: 20, }}>
             
             <Grid container spacing={4} alignItems="center" justifyContent="center">
-                <Grid item xs={12} md={3} style={{ backgroundColor: myitemcolor }}>
-                    <Typography variant="h5" margin="normal" sx={{ m: 0 }}>年齢</Typography>
+                <Grid item xs={12} md={3}>
+                <Box sx={{
+                        backgroundColor: myitemcolor,
+                        height:'auto',
+                        borderRadius: 2,
+                        p:2,
+                    }}>
+                    <Typography variant="h5" margin="normal" align="center" sx={{ m: 0 }}>年齢</Typography>
+                </Box>
                 </Grid>
                 <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
@@ -170,10 +179,20 @@ function Form(props) {
                         autoFocus
                         onChange={handleChange}
                         style={{ backgroundColor: mytextboxcolor }}
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end">歳</InputAdornment>,
+                        }}
                     />
                 </Grid>
-                <Grid item xs={12} md={3} style={{ backgroundColor: myitemcolor }}>
-                    <Typography variant="h5" margin="normal" sx={{ l: 0 }}>身長</Typography>
+                <Grid item xs={12} md={3}>
+                <Box sx={{
+                        backgroundColor: myitemcolor,
+                        height:'auto',
+                        borderRadius: 2,
+                        p:2,
+                    }}>
+                    <Typography variant="h5" margin="normal" align="center" sx={{ l: 0 }}>身長</Typography>
+                </Box>
                 </Grid>
                 <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
@@ -181,15 +200,27 @@ function Form(props) {
                         required
                         fullWidth
                         id="height"
-                        label="身長[cm]を入力してください。"
+                        //label="身長[cm]を入力してください。"
+                        label="身長を入力してください。"
                         name="height"
                         onChange={handleChange}
                         autoFocus
                         style={{ backgroundColor: mytextboxcolor }}
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end">cm</InputAdornment>,
+                        }}
                     />
                 </Grid>
-                <Grid item xs={12} md={3} style={{ backgroundColor: myitemcolor }}>
-                    <Typography variant="h5" margin="normal" sx={{ l: 0 }}>体重</Typography>
+                <Grid item xs={12} md={3} >
+                    <Box sx={{
+                        backgroundColor: myitemcolor,
+                        height:'auto',
+                        borderRadius: 2,
+                        p:2,
+                    }}>
+                        <Typography variant="h5" margin="normal" align='center' sx={{ l: 0 }}>体重</Typography>
+                
+                    </Box>
                 </Grid>
                 <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
@@ -198,16 +229,29 @@ function Form(props) {
                         required
                         fullWidth
                         id="weight"
-                        label="体重[kg]を入力してください。"
+                        //label="体重[kg]を入力してください。"
+                        label="体重を入力してください。"
                         name="weight"
                         onChange={handleChange}
                         autoFocus
                         style={{ backgroundColor: mytextboxcolor }}
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end">kg</InputAdornment>,
+                        }}
+                        
                     />
                 </Grid>
 
-                <Grid item xs={12} md={3} style={{ backgroundColor: myitemcolor }}>
-                    <Typography variant="h5" margin="normal" sx={{ l: 0 }}>性別</Typography>
+                <Grid item xs={12} md={3}>
+                <Box sx={{
+                        backgroundColor: myitemcolor,
+                        height:'auto',
+                        borderRadius: 2,
+                        p:2,
+                    }}>
+                    <Typography variant="h5" margin="normal" align="center" sx={{ l: 0 }}>性別</Typography>
+                </Box>
+                    
                 </Grid>
                 <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
@@ -226,9 +270,15 @@ function Form(props) {
 
 
                 {/*服装選択済みリスト*/ }
-                <Grid item xs={12} md={3} style={{ backgroundColor: myitemcolor }}
-                >
-                    <Typography variant="h5" margin="normal" sx={{ l: 0 }}>選択済み衣服</Typography>
+                <Grid item xs={12} md={3}>
+                    <Box sx={{
+                        backgroundColor: myitemcolor,
+                        height:'auto',
+                        borderRadius: 2,
+                        p:2,
+                    }}>
+                        <Typography variant="h5" margin="normal" align="center" sx={{ l: 0 }}>選択済み衣服</Typography>
+                    </Box>
                 </Grid>
                 <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
@@ -242,17 +292,28 @@ function Form(props) {
 
                
                 {/*服装選択画面*/ }
-                <Grid item xs={12} md={12} style={{ backgroundColor: myitemcolor }}>
-                    <Typography variant="h5" margin="normal" sx={{ l: 0 }} >着衣量</Typography>
+                <Grid item xs={12} md={3}>
+                    <Box sx={{
+                        backgroundColor: myitemcolor,
+                        height:'auto',
+                        borderRadius: 2,
+                        p:2,
+                    }}>
+                        <Typography variant="h5" margin="normal" align="center" sx={{ l: 0 }}>着衣量</Typography>
+                    </Box>
+                    
                 </Grid>
 
                 {/*服装選択パネル位置調整用の空コンポーネント*/ }
-                <Grid item xs={12} md={2} style={{ backgroundColor: '#FBF8F1', opacity:0 } }
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1', opacity:0 } }
+                >
+                </Grid>
+                <Grid item xs={12} md={3} style={{ backgroundColor: '#FBF8F1', opacity:0 } }
                 >
                 </Grid>
                 
                 {/*服装選択パネル*/ }
-                <Grid item xs={12} md={10} style={{ backgroundColor: '#FBF8F1' }}
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
                     
                     <BasicTabs 
@@ -263,7 +324,8 @@ function Form(props) {
 
 
                 <Grid item style={{ backgroundColor: '#FBF8F1' }}
-                ><Button variant="contained" size="large"　onClick={handleSubmit}>送信</Button></Grid>
+                > 
+                <Button variant="contained" sx={"background-color:#54BAB9;color:black;"} size="large"　onClick={handleSubmit}>送信</Button></Grid>
             </Grid>
         </Container>
         </ThemeProvider>

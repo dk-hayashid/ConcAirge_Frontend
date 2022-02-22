@@ -23,7 +23,7 @@ export default function Test_clothed(Props) {
           {Props.clothed_list.map((item) => (
             
             <ImageListItem 
-              key={item.img}
+              key={item.id}
               onClick={() => Props.remove_cloth(item)}
               sx={{
                 borderRadius: 10,
