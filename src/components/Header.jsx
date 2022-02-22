@@ -85,7 +85,6 @@ const ResponsiveAppBar = (props) => {
                                 ConcAirge
                             </Typography>
 
-                            {/* backgroundColor: 'primary.dark' */}
 
                             <Box sx={{ flexGrow: 1, display: { sm: 'flex', md: 'none' } ,backgroundColor:'#5F9EA0'}}>
                                 <IconButton
