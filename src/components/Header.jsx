@@ -85,7 +85,7 @@ const ResponsiveAppBar = (props) => {
                                 ConcAirge
                             </Typography>
 
-                            <Box sx={{ flexGrow: 1, display: { sm: 'flex', md: 'none' } }}>
+                            <Box sx={{ flexGrow: 1, display: { sm: 'flex', md: 'none' } ,backgroundColor: 'primary.dark'}}>
                                 <IconButton
                                     size="large"
                                     aria-label="account of current user"

@@ -64,6 +64,7 @@ export default function StandardImageList(Props) {
                 img: 'images/clothes/tops/jacket.png',
                 title: 'ジャケット',
                 cloth:0.54,
+                id:new Date().getTime(),
                 
               },
               {
@@ -87,6 +88,7 @@ export default function StandardImageList(Props) {
                   img: 'images/clothes/bottoms/slacks.png',
                   title: 'パンツ',
                   cloth:0.25,
+                  id:new Date().getTime(),
                 },
 
 
@@ -99,6 +101,7 @@ export default function StandardImageList(Props) {
                   img: 'images/clothes/others/stole.png',
                   title: 'マフラー・ストール',
                   cloth:0.15,
+                  id:new Date().getTime(),
 
                 },
             ];
@@ -112,34 +115,40 @@ export default function StandardImageList(Props) {
               img: 'images/clothes/tops/heattech.png',
               title: 'ヒートテック',
               cloth:0.2,
+              id:new Date().getTime(),
             },
             {
               img: 'images/clothes/tops/T-shirt.png',
               title: 'Tシャツ',
               cloth:0.08,
+              id:new Date().getTime(),
             },
             {
               img: 'images/clothes/tops/shirt.png',
               title: 'シャツ',
               cloth:0.25,
+              id:new Date().getTime(),
               
             },
             {
               img: 'images/clothes/tops/cardigan.png',
               title: 'カーディガン',
               cloth:0.2,
+              id:new Date().getTime(),
               
             },
             {
               img: 'images/clothes/tops/jacket.png',
               title: 'ジャケット',
               cloth:0.54,
+              id:new Date().getTime(),
               
             },
             {
               img: 'images/clothes/tops/knit.png',
               title: 'ニット',
               cloth:0.39,
+              id:new Date().getTime(),
               
             },
             ];
@@ -151,11 +160,13 @@ export default function StandardImageList(Props) {
               img: 'images/clothes/bottoms/slacks.png',
               title: 'パンツ',
               cloth:0.24,
+              id:new Date().getTime(),
             },
             {
               img: 'images/clothes/bottoms/skirt.png',
               title: 'スカート',
               cloth:0.23,
+              id:new Date().getTime(),
             },
 
             ];
@@ -166,11 +177,13 @@ export default function StandardImageList(Props) {
               img: 'images/clothes/others/one-piece.png',
               title: 'ワンピース',
               cloth:0.5,
+              id:new Date().getTime(),
             },
             {
               img: 'images/clothes/others/stole.png',
               title: 'マフラー・ストール',
               cloth:0.2,
+              id:new Date().getTime(),
             },
 
             ];
@@ -188,7 +201,18 @@ export default function StandardImageList(Props) {
     //https://masalib.hatenablog.com/entry/2020/12/26/000000
 
     return (
-    <ImageList  sx={{height: 250}} cols={4} rowHeight={50}>
+    <ImageList
+      
+      sx={{
+        display: 'grid',
+        overflow:'auto',
+        gridAutoColumns: 150 ,
+        gridTemplateColumns: 'repeat(4,1fr) !important',
+      }}
+      //cols={4} 
+      //rowHeight={'auto'}
+      //rowHeight={150}
+    >
       {itemData.map((item) => (
         <ImageListItem 
           key={item.img+new Date().getTime()}
@@ -216,13 +240,15 @@ export default function StandardImageList(Props) {
           <ImageListItemBar
               sx={{
                 background:
-                  // 'rgba(0,0,0,0.2)'
-                  'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, ' +
-                  'rgba(0,0,0,0.1) 70%, rgba(0,0,0,0) 100%)',
+                   //'rgba(0,0,0,0.2)',
+                  // 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, ' +
+                  // 'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+                  'linear-gradient(to top, rgba(0,0,0,0.5) 0%, ' +
+                  'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
                 WebkitTextFillColor:'white',
               }}
               title={item.title}
-              position="top"
+              position="bottom"
           />
           
 

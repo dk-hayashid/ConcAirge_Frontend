@@ -52,35 +52,38 @@ export default function BasicTabs(props) {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+        <Tabs 
+          value={value} 
+          onChange={handleChange} 
+          aria-label="basic tabs example" 
+          variant="fullWidth"
+          sx={{backgroundColor:'#CFD8DC'}}
+          >
           <Tab label="Tops" {...a11yProps(0)} />
           <Tab label="Bottoms" {...a11yProps(1)} />
           <Tab label="Others" {...a11yProps(2)} />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={0} >
         {/*{Tops}*/} 
         <ImageList
           Series="Tops"
-          changeclothes={(cloth) => props.changeclothes(cloth)}
           add_cloth={(cloth) => props.add_cloth(cloth)}
           sex={props.sex}
         >
         </ImageList>
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={1} >
         <ImageList
           Series="Bottoms"
-          changeclothes={(cloth) => props.changeclothes(cloth)}
           add_cloth={(cloth) => props.add_cloth(cloth)}
           sex={props.sex}
         >
         </ImageList>
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel value={value} index={2} >
       <ImageList
           Series="Others"
-          changeclothes={(cloth) => props.changeclothes(cloth)}
           add_cloth={(cloth) => props.add_cloth(cloth)}
           sex={props.sex}
         >

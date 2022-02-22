@@ -3,94 +3,9 @@ import { useState } from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-// import { makeStyles } from '@mui/styles';
-//https://reffect.co.jp/react/reack-usestate-to-do-application
-//冨士本やること：リストの追加、削除方法を調べる
 
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//     justifyContent: 'space-around',
-//     overflow: 'hidden'
-//   }}));
-
-
-
-export default function ClothedList(Props) {
-
-    //この配列を服装選択画面のクリックで追加&clothedボタンのクリックで削除できるようにしたい。
-    const [clothed_list, setcloth]= useState([
-        {
-          img: 'images/clothes/tops/Tshirt.png',
-          title: 'Tshirt',
-          cloth:0.5,
-        }
-      ]);
-    
-    function testfunc(cloth){
-      const new_clothed_list=[...clothed_list,cloth];
-      setcloth(new_clothed_list);
-    }
-      
-    var itemData = [
-        {
-          img: 'images/clothes/tops/Tshirt.png',
-          title: 'Tshirt',
-          cloth:0.5,
-        },
-        {
-          img: 'images/clothes/tops/Shirt.png',
-          title: 'Shirts',
-          cloth:0.3,
-        },
-        {
-          img: 'images/clothes/tops/Tshirt.png',
-          title: 'Tshirt',
-          cloth:0.2,
-
-        },
-        // {
-        //   img: 'images/clothes/tops/Shirt.png',
-        //   title: 'Shirts',
-        //   cloth:0.1,
-        // },
-        // {
-        //   img: 'images/clothes/tops/Shirt.png',
-        //   title: 'Shirts',
-        //   cloth:0.3,
-        // },
-        // {
-        //   img: 'images/clothes/tops/Tshirt.png',
-        //   title: 'Tshirt',
-        //   cloth:0.2,
-
-        //  },
-        // {
-        //   img: 'images/clothes/tops/Shirt.png',
-        //   title: 'Shirts',
-        //   cloth:0.1,
-        // },
-        // {
-        //   img: 'images/clothes/tops/Shirt.png',
-        //   title: 'Shirts',
-        //   cloth:0.3,
-        // },
-        // {
-        //   img: 'images/clothes/tops/Tshirt.png',
-        //   title: 'Tshirt',
-        //   cloth:0.2,
-
-        // },
-        // {
-        //   img: 'images/clothes/tops/Shirt.png',
-        //   title: 'Shirts',
-        //   cloth:0.1,
-        // },
-        
-      ];
-
+export default function ClothedList(Props) {  
 
 //もともと書いてたもの
       // sx={{
@@ -119,22 +34,37 @@ export default function ClothedList(Props) {
           sx={{
 
             display: 'grid',
-            gridAutoColumns: "160px", 
-            gridAutoRows: '80%',
+            gridAutoColumns: 150, 
             gridAutoFlow: "column",
-            gridTemplateColumns: "repeat(minmax(100px,1fr))",
-            height: 200,
-            overflow:'auto'
+            gridTemplateColumns: 'repeat(4,150px) !important',
+            height: 170,
+            overflow:'auto',
+
+            
           }} 
-          rowHeight={100}
+          
 
         >
 
-          {itemData.map((item) => (
-            <ImageListItem key={item.img}> 
+          {Props.clothed_list.map((item) => (
+            <ImageListItem 
+              key={item.id} 
+              onClick={() => Props.remove_cloth(item)} 
+              sx={{
+                opacity:1,
+                "&:hover":{
+                  opacity:0.6,
+                  cursor: "pointer",
+                },
+                "&:active":{
+                  opacity:0.3,
+                  cursor: "pointer",
+                }
+              }}
+            > 
               
               <img
-                  width="100"
+                  //width="100"
                   src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
                   srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                   alt={item.title}
@@ -156,6 +86,7 @@ export default function ClothedList(Props) {
     
             </ImageListItem>
           ))}
+          
         </ImageList>
       );
 

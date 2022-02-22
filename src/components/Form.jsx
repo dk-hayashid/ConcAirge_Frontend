@@ -11,13 +11,49 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import BasicTabs from './tabs';
 import Clothedlist from './clothed';
+import {
+    createTheme,
+    responsiveFontSizes,
+    ThemeProvider,
+  } from '@mui/material/styles';
 
-//TODO:Test用なのであとで消す
-import Test_clothed from './test_clothed';
+
+let theme = createTheme({
+    typography: {
+      fontFamily: ['Raleway, Arial','Kosugi',].join(','),
+      
+    },
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: `
+          @font-face {
+            font-family: 'Kosugi';
+            font-style: normal;
+            font-display: swap;
+            font-weight: 900;
+            
+            unicodeRange: 'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF',
+          },
+        
+            ::-webkit-scrollbar{
+                width: 15px;
+            },
+            ::-webkit-scrollbar-thumb {
+                background-color: #276976;
+                border-radius: 10px;
+            }
+        `,
+      },
+    },
+  });
+  theme = responsiveFontSizes(theme);//文字サイズのレスポンシブ対応
 
 
 function Form(props) {
-    const [user, setUser] = useState({ age: "34", height: "173", weight: "87.4", sex: "male", fashion: 0 });
+
+    //user.fashion: 最低限の下着類は初期値として入れておく(下着0.04+ソックス0.03+革靴0.03)
+    const [user, setUser] = useState({ age: "34", height: "173", weight: "87.4", sex: "male", fashion: 1.24 });
+
     const history = useNavigate();
 
     function handleChange(e) {
@@ -50,14 +86,41 @@ function Form(props) {
 
 
     //服装リストの定義
-    const [clothed_list, setcloth]= useState([]);
+    const [clothed_list, setcloth]= useState([
+        {
+            img: 'images/clothes/tops/jacket.png',
+            title: 'ジャケット',
+            cloth:0.54,
+            id:new Date().getTime(),
+            
+        },
+        {
+            img: 'images/clothes/tops/shirt.png',
+            title: 'シャツ',
+            cloth:0.25,
+            id:new Date().getTime()+1,
+            
+        },
+        {
+            img: 'images/clothes/tops/heattech.png',
+            title: 'ヒートテック',
+            cloth:0.2,
+            id:new Date().getTime()+2,
+        },
+        {
+            img: 'images/clothes/bottoms/slacks.png',
+            title: 'パンツ',
+            cloth:0.25,
+            id:new Date().getTime()+3,
+        },
+    ]);
     
     function add_cloth(cloth){
       const new_clothed_list=[...clothed_list,cloth];
       setcloth(new_clothed_list);
       const new_fashion=user.fashion+cloth.cloth;
       setUser({ ...user, fashion: new_fashion });
-      //alert('現時点の着衣量合計は'+new_fashion+'です。')
+      //alert('追加された衣服のclo値は'+cloth.cloth+'で、現時点の着衣量合計は'+new_fashion+'です。')
       //alert("id:"+cloth.id)
       //alert(cloth);
     }
@@ -73,17 +136,30 @@ function Form(props) {
         //alert('現時点の着衣量合計は'+new_fashion+'です。')
         //alert("id:"+cloth.id)
       }
+
+    /*
+      色見本サイト
+      https://materialui.co/colors
+
+      色は下の変数で変更しよう。
+    */
+    const myitemcolor='#00CED1';
+    const mybackgroundcolor='#FBF8F1';
+    const mytextboxcolor='F6F6F6';
+
+    //myitemcolor   #26C6DA #54BAB9 #00CED1
+    // #E0F7FA
     
-
-
+    
     return (
-        <Container maxWidth="md" style={{ backgroundColor: 'green' }} sx={{ marginTop: 20, }}>
+        <ThemeProvider theme={theme}>
+        <Container maxWidth="md" style={{ backgroundColor: mybackgroundcolor }} sx={{ marginTop: 20, }}>
             
-            <Grid container spacing={5} alignItems="center" justifyContent="center">
-                <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
+            <Grid container spacing={4} alignItems="center" justifyContent="center">
+                <Grid item xs={12} md={3} style={{ backgroundColor: myitemcolor }}>
                     <Typography variant="h5" margin="normal" sx={{ m: 0 }}>年齢</Typography>
                 </Grid>
-                <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
                     <TextField
                         required
@@ -93,13 +169,13 @@ function Form(props) {
                         label="年齢を入力してください。"
                         autoFocus
                         onChange={handleChange}
-                        style={{ backgroundColor: 'yellow' }}
+                        style={{ backgroundColor: mytextboxcolor }}
                     />
                 </Grid>
-                <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
+                <Grid item xs={12} md={3} style={{ backgroundColor: myitemcolor }}>
                     <Typography variant="h5" margin="normal" sx={{ l: 0 }}>身長</Typography>
                 </Grid>
-                <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
                     <TextField
                         required
@@ -109,13 +185,13 @@ function Form(props) {
                         name="height"
                         onChange={handleChange}
                         autoFocus
-                        style={{ backgroundColor: 'yellow' }}
+                        style={{ backgroundColor: mytextboxcolor }}
                     />
                 </Grid>
-                <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
+                <Grid item xs={12} md={3} style={{ backgroundColor: myitemcolor }}>
                     <Typography variant="h5" margin="normal" sx={{ l: 0 }}>体重</Typography>
                 </Grid>
-                <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
                     <TextField
                         // margin="normal"
@@ -126,14 +202,14 @@ function Form(props) {
                         name="weight"
                         onChange={handleChange}
                         autoFocus
-                        style={{ backgroundColor: 'yellow' }}
+                        style={{ backgroundColor: mytextboxcolor }}
                     />
                 </Grid>
 
-                <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
+                <Grid item xs={12} md={3} style={{ backgroundColor: myitemcolor }}>
                     <Typography variant="h5" margin="normal" sx={{ l: 0 }}>性別</Typography>
                 </Grid>
-                <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
                     <RadioGroup
                         row
@@ -150,32 +226,33 @@ function Form(props) {
 
 
                 {/*服装選択済みリスト*/ }
-                <Grid item xs={12} md={2} style={{ backgroundColor: '#e91e63' }}
+                <Grid item xs={12} md={3} style={{ backgroundColor: myitemcolor }}
                 >
+                    <Typography variant="h5" margin="normal" sx={{ l: 0 }}>選択済み衣服</Typography>
                 </Grid>
-                <Grid item xs={12} md={10} style={{ backgroundColor: '#e91e63' }}
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
                     
                     <Clothedlist 
                         clothed_list={clothed_list}
+                        remove_cloth={(i) => remove_cloth(i)}
                     />
                 </Grid>
 
 
-
-
+               
                 {/*服装選択画面*/ }
-                <Grid item xs={12} md={12} style={{ backgroundColor: 'blue' }}>
-                    <Typography variant="h5" margin="normal" sx={{ l: 0 }}>着衣量</Typography>
+                <Grid item xs={12} md={12} style={{ backgroundColor: myitemcolor }}>
+                    <Typography variant="h5" margin="normal" sx={{ l: 0 }} >着衣量</Typography>
                 </Grid>
 
                 {/*服装選択パネル位置調整用の空コンポーネント*/ }
-                <Grid item xs={12} md={2} style={{ backgroundColor: '#e91e63' } }
+                <Grid item xs={12} md={2} style={{ backgroundColor: '#FBF8F1', opacity:0 } }
                 >
                 </Grid>
                 
                 {/*服装選択パネル*/ }
-                <Grid item xs={12} md={10} style={{ backgroundColor: '#e91e63' }}
+                <Grid item xs={12} md={10} style={{ backgroundColor: '#FBF8F1' }}
                 >
                     
                     <BasicTabs 
@@ -185,31 +262,11 @@ function Form(props) {
                 </Grid>
 
 
-
-
-
-                {/*テスト用。後で消す*/ }
-                <Grid item xs={12} md={2} style={{ backgroundColor: '#e91e63' }}
-                >
-                    <Typography variant="h5" margin="normal" sx={{ l: 0 }}>着用済み衣服(テスト)</Typography>
-                </Grid>
-                <Grid item xs={12} md={10} style={{ backgroundColor: '#e91e63' }}
-                >
-                    
-                    <Test_clothed 
-                        clothed_list={clothed_list}
-                        remove_cloth={(i) => remove_cloth(i)}
-                    />
-                </Grid>
-
-                
-
-
-
-                <Grid item style={{ backgroundColor: '#e91e63' }}
+                <Grid item style={{ backgroundColor: '#FBF8F1' }}
                 ><Button variant="contained" size="large"　onClick={handleSubmit}>送信</Button></Grid>
             </Grid>
         </Container>
+        </ThemeProvider>
     )
 }
 
