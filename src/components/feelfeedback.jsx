@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';//並び方決めるやつ
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';//笑顔アイコン
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';//苦しいアイコン
 import axios from 'axios';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 
 function feedbackbutton (props){
     return(
@@ -31,29 +31,60 @@ function postfeed(feed) {
 }
 
 
-export default function IconButtons() {
+export default function Feedbackbuttons() {
   return (
     
-    <Stack direction="row" spacing={3}>
+    <Stack spacing={2} direction="row">
+      <Button 
+        variant="contained" 
+        sx={{
+          backgroundColor:"#FF7043",
+          opacity:1,
+            "&:hover":{
+              opacity:0.6,
+              backgroundColor:"#FF7043"
+            },
+            "&:active":{
+              opacity:0.3,
+              backgroundColor:"#FF7043"
+            }
+        }}
+        onClick={() => {postfeed(1)}}
+      >Too Hot</Button>
       
-      <IconButton aria-label="Cold" size='large' onClick={()=>postfeed("Cold")}>
-        <SentimentVeryDissatisfiedIcon fontSize='inherit' htmlColor='blue'/>
-        <label>Too cold</label>
-      </IconButton>
+      <Button 
+        variant="contained" 
+        sx={{
+            backgroundColor:"#4DB6AC",
+            opacity:1,
+            "&:hover":{
+              opacity:0.6,
+              backgroundColor:"#4DB6AC"
+            },
+            "&:active":{
+              opacity:0.3,
+              backgroundColor:"#4DB6AC"
+            }
+        }}
+        onClick={() => {postfeed(0)}}
+      >Comfortable</Button>
       
-
-
-      <IconButton aria-label="Satisfied" size='large' onClick={()=>postfeed("Comfortable")}>
-        <SentimentSatisfiedAltIcon fontSize='inherit' htmlColor='green'/>
-        <label>Comfortable</label>
-      </IconButton>
-      
-
-      <IconButton aria-label="Hot" size='large' onClick={()=>postfeed("Hot")}>
-        <SentimentVeryDissatisfiedIcon fontSize='inherit' htmlColor='red'/>
-        <label>Too hot</label>
-      </IconButton>
-      
+      <Button 
+        variant="contained" 
+        sx={{
+            backgroundColor:"#42A5F5",
+            opacity:1,
+            "&:hover":{
+              opacity:0.6,
+              backgroundColor:"#42A5F5"
+            },
+            "&:active":{
+              opacity:0.3,
+              backgroundColor:"#42A5F5"
+            }
+        }}
+        onClick={() => {postfeed(-1)}}
+      >Too Cold</Button>
     </Stack>
   );
 }

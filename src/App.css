@@ -4,9 +4,9 @@ body{
     background-color:rgba(255,255,255,0);
     background-blend-mode:lighten;
 }
-html, body {
+/* html, body {
         overflow: hidden
-}
+} */
 h1 {
     font-family: 'Caveat', cursive;
     font-size: 50px;

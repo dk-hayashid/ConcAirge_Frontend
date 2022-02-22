@@ -1,30 +1,29 @@
 import React, { useState } from 'react';
-import IconButtons from './feelfeedback';
+import Feedbackbuttons from './feelfeedback';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 
-export default function Map(props){
-    const Base64 = ({ data }) => <img src={`data:image/jpeg;base64,${data}`} height="220px"/>
+export default function Map(props) {
+    const Base64 = ({ data }) => <img src={`data:image/jpeg;base64,${data}`} width="100%" />
     return (
-        <form class="recommend">   
-
-            <section>
-                <p align="center"><span>{props.comTem}℃</span> is good for you!</p>
-            </section>
-        
-            <section>
-                <div id="map_image">
-                    <p>Try the location we presented.</p>
+        <Container maxWidth="md" sx={{ marginTop: 20, backgroundColor:"#FBF8F1" }}>
+            <Grid container spacing={5} alignItems="center" justifyContent="center">
+                <Grid item xs={12} style={{textAlign: 'center'}}>
+                    <Typography variant="h3">快適温度は{props.comTem}℃</Typography>
+                </Grid>
+                <Grid item >
                     <Base64 data={props.map} />
-                </div>
-            </section>
+                </Grid>
 
-            <section>
-                <div id="feelfeedbackbutton" align="center">
-                    <p>Was it comfortable?</p>
-                    <IconButtons />
-                </div>
-            </section>
-            
-            
-        </form>
+                <Grid item xs={12} style={{textAlign: 'center'}}>
+                    <Typography variant="h3">快適でしたか？</Typography>
+                </Grid>
+
+                <Grid item>
+                    <Feedbackbuttons />
+                </Grid>
+            </Grid>
+        </Container>
     )
 }

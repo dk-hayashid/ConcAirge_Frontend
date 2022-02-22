@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+
 
 export default function Home(props) {
-    
+
     return (
-        <img src="images/logo.png" />
+        <Container maxWidth="md" sx={{ marginTop: 20 }}>
+            <Grid container spacing={5} alignItems="center" justifyContent="center">
+                <Grid item style={{}}>
+                    <img src="images/logo.png" style={{ widht: "100%", height: "auto" }} />
+                </Grid>
+
+            </Grid>
+        </Container>
     )
 }
