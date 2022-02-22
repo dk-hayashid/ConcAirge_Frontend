@@ -16,6 +16,7 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
+import { deepOrange} from '@mui/material/colors'
 
 
 function HideOnScroll(props) {
@@ -67,6 +68,11 @@ const ResponsiveAppBar = (props) => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const logoutPage = () => {
+        props.setToken();
+        navigate('/');
+    }
 
 
     return (
@@ -142,10 +148,13 @@ const ResponsiveAppBar = (props) => {
                                 ))}
                             </Box>
 
+                            {props.token === 'guestuser' ? 
+                                (<Button variant="contained" size="large" onClick={logoutPage}>サインイン</Button>) :
+                                (
                             <Box sx={{ flexGrow: 0 }}>
                                 <Tooltip title="Open settings">
                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                        <Avatar sx={{ bgcolor: deepOrange[500] }}>OP</Avatar>
                                     </IconButton>
                                 </Tooltip>
                                 <Menu
@@ -164,13 +173,19 @@ const ResponsiveAppBar = (props) => {
                                     open={Boolean(anchorElUser)}
                                     onClose={handleCloseUserMenu}
                                 >
-                                    {settings.map((setting) => (
+                                    <MenuItem key="logout" onClick={logoutPage}>
+                                        <Typography textAlign="center">ログアウト</Typography>
+                                    </MenuItem>
+
+                                    {/* {settings.map((setting) => (
                                         <MenuItem key={setting} onClick={handleCloseUserMenu}>
                                             <Typography textAlign="center">{setting}</Typography>
                                         </MenuItem>
-                                    ))}
+                                    ))} */}
                                 </Menu>
                             </Box>
+
+                                )}
                         </Toolbar>
                     </Container>
                 </AppBar>

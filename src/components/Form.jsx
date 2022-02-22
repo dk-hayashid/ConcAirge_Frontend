@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
@@ -55,7 +55,7 @@ function Form(props) {
     //user.fashion: 最低限の下着類は初期値として入れておく(下着0.04+ソックス0.03+革靴0.03)
     const [user, setUser] = useState({ age: "34", height: "173", weight: "87.4", sex: "male", fashion: 1.24 });
 
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     function handleChange(e) {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -79,7 +79,7 @@ function Form(props) {
                     props.changeComTem(response.data['ComfortTemperature']);
                     props.changeMap(response.data['Map']);
                 });
-        history('/map');
+        navigate('/map');
     }
 
 

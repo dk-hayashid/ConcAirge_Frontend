@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 export default function Map(props) {
-    const Base64 = ({ data }) => <img src={`data:image/jpeg;base64,${data}`} width="100px" />
+    const Base64 = ({ data }) => <img src={`data:image/jpeg;base64,${data}`} width="100%" />
     return (
         <Container maxWidth="md" sx={{ marginTop: 20 }}>
             <Grid container spacing={5} alignItems="center" justifyContent="center">
