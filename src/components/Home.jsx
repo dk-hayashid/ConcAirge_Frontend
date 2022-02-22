@@ -9,7 +9,7 @@ export default function Home(props) {
     return (
         <Container maxWidth="md" sx={{ marginTop: 20 }}>
             <Grid container spacing={5} alignItems="center" justifyContent="center">
-                <Grid item style={{ backgroundColor: '#e91e63' }}>
+                <Grid item style={{}}>
                     <img src="images/logo.png" style={{ widht: "100%", height: "auto" }} />
                 </Grid>
 
