@@ -17,13 +17,15 @@ export default function Map(props) {
                     <Base64 data={props.map} />
                 </Grid>
 
-                <Grid item xs={12} style={{textAlign: 'center'}}>
-                    <Typography variant="h3">快適でしたか？</Typography>
-                </Grid>
-
-                <Grid item>
-                    <Feedbackbuttons userName={props.userName} comTem={props.comTem} />
-                </Grid>
+                {props.token !== 'guestuser' && 
+                    <Grid item xs={12} style={{textAlign: 'center'}}>
+                        <Typography variant="h3">快適でしたか？</Typography>
+                    </Grid>}
+                {props.token !== 'guestuser' && 
+                    <Grid item>
+                        <Feedbackbuttons userName={props.userName} comTem={props.comTem} />
+                    </Grid>
+                }
             </Grid>
         </Container>
     )

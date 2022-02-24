@@ -53,6 +53,7 @@ const ResponsiveAppBar = (props) => {
         "ホーム": () => { navigate('/'); },
         "レコメンド": () => { navigate('/form'); }
     };
+    const character = props.userName[0].toUpperCase();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -147,14 +148,28 @@ const ResponsiveAppBar = (props) => {
                                     </Button>
                                 ))}
                             </Box>
-
                             {props.token === 'guestuser' ? 
-                                (<Button variant="contained" size="large" onClick={logoutPage}>サインイン</Button>) :
+                                (<Button variant="contained" sx={{
+                                    backgroundColor:"#F7ECDE",
+                                    color:"black",
+                                    "&:hover":{
+                                        opacity:0.8,
+                                        cursor: "pointer",
+                                        backgroundColor:"#e0f2f1",
+                                      },
+                                    "&:active":{
+                                        opacity:0.3,
+                                        cursor: "pointer",
+                                        backgroundColor:"#e0f2f1",
+                                      }
+                                
+                                }} 
+                                    size="large" onClick={logoutPage}>サインイン</Button>) :
                                 (
                             <Box sx={{ flexGrow: 0 }}>
                                 <Tooltip title="Open settings">
                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                        <Avatar sx={{ bgcolor: deepOrange[500] }}>OP</Avatar>
+                                        <Avatar sx={{ bgcolor: deepOrange[500] }}>{character}</Avatar>
                                     </IconButton>
                                 </Tooltip>
                                 <Menu
@@ -173,8 +188,12 @@ const ResponsiveAppBar = (props) => {
                                     open={Boolean(anchorElUser)}
                                     onClose={handleCloseUserMenu}
                                 >
+                                    
+                                    <MenuItem key="logout">
+                                        <Typography textAlign="center">{props.userName}</Typography>
+                                    </MenuItem>
                                     <MenuItem key="logout" onClick={logoutPage}>
-                                        <Typography textAlign="center">ログアウト</Typography>
+                                        <Typography textAlign="center">サインアウト</Typography>
                                     </MenuItem>
 
                                     {/* {settings.map((setting) => (
