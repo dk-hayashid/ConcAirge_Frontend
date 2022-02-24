@@ -105,7 +105,7 @@ function Form(props) {
         },
         {
             img: 'images/clothes/tops/heattech.png',
-            title: '高断熱インナー',
+            title: 'ヒートテック',
             cloth:0.2,
             id:new Date().getTime()+2,
         },
@@ -281,16 +281,6 @@ function Form(props) {
                         <Typography variant="h5" margin="normal" align="center" sx={{ l: 0 }}>選択済み衣服</Typography>
                     </Box>
                 </Grid>
-
-                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1', opacity:1 } }
-                >
-                    <Typography variant="h6" margin="normal" align="center" sx={{ l: 0 }}>パネルをクリックすることで選択を解除できます。</Typography>
-                </Grid>
-
-
-                <Grid item xs={12} md={3} style={{ backgroundColor: '#FBF8F1', opacity:1 } }
-                >
-                </Grid>
                 <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
                     
@@ -316,9 +306,8 @@ function Form(props) {
                 </Grid>
 
                 {/*服装選択パネル位置調整用の空コンポーネント*/ }
-                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1', opacity:1 } }
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1', opacity:0 } }
                 >
-                    <Typography variant="h6" margin="normal" align="center" sx={{ l: 0 }}>今現在着用している衣服を下部のパネルから選んでください。</Typography>
                 </Grid>
                 <Grid item xs={12} md={3} style={{ backgroundColor: '#FBF8F1', opacity:0 } }
                 >

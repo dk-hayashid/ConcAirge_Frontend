@@ -11,7 +11,7 @@ export default function Map(props) {
         <Container maxWidth="md" sx={{ marginTop: 20, backgroundColor:"#FBF8F1" }}>
             <Grid container spacing={5} alignItems="center" justifyContent="center">
                 <Grid item xs={12} style={{textAlign: 'center'}}>
-                    <Typography variant="h4">あなたの快適温度は{props.comTem}℃です。</Typography>
+                    <Typography variant="h3">快適温度は{props.comTem}℃</Typography>
                 </Grid>
                 <Grid item >
                     <Base64 data={props.map} />
@@ -19,7 +19,7 @@ export default function Map(props) {
 
                 {props.token !== 'guestuser' && 
                     <Grid item xs={12} style={{textAlign: 'center'}}>
-                        <Typography variant="h4">快適でしたか？</Typography>
+                        <Typography variant="h3">快適でしたか？</Typography>
                     </Grid>}
                 {props.token !== 'guestuser' && 
                     <Grid item>
