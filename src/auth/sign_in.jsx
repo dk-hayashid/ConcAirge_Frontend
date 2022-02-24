@@ -44,6 +44,7 @@ function SignIn(props) {
         console.log('result: ' + result)
         const accessToken = result.getAccessToken().getJwtToken()
         console.log('AccessToken: ' + accessToken)
+        props.setUserName(email);
         setEmail('')
         setPassword('')
         console.log("OK, signIn");
