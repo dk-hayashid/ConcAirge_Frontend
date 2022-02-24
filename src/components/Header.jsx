@@ -53,7 +53,9 @@ const ResponsiveAppBar = (props) => {
         "ホーム": () => { navigate('/'); },
         "レコメンド": () => { navigate('/form'); }
     };
-    const character = props.userName[0].toUpperCase();
+    
+    
+    const character = props.userName === '' ? 'G': props.userName[0].toUpperCase();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
