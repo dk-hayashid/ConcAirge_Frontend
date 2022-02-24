@@ -62,6 +62,7 @@ theme = responsiveFontSizes(theme);//文字サイズのレスポンシブ対応
 function App(props) {
   const [token, setToken] = useState('');
   const [comTem, setComTem] = useState('');
+  const [userName, setUserName] = useState('');
   const [map, setMap] = useState('');
 
   function changeComTem(ComTem) {
@@ -81,7 +82,7 @@ function App(props) {
           {/* <img src="./images/logo.png" align="center" width="50%"></img> */}
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<SignIn setToken={setToken} />} />
+              <Route path="/" element={<SignIn setToken={setToken} setUserName={setUserName} />} />
               <Route path='/auth/sign_up' element={<Signup />} />
               <Route path='/auth/verification' element={<Verification />} />
               <Route path="*" element={<Page404 />} />
@@ -100,16 +101,21 @@ function App(props) {
     <body>
       <main>
         <BrowserRouter>
-          <ResponsiveAppBar token={token} setToken={setToken} />
+          <ResponsiveAppBar 
+            token={token} 
+            setToken={setToken} 
+            userName={userName}
+          />
           <Routes>
             <Route exact path="/"
               element={<Home changeComTem={changeComTem} />} />
             <Route
               path="/form"
               element={<Form changeComTem={changeComTem}
-                changeMap={changeMap} />} />
+                changeMap={changeMap}
+                email={userName} />} />
             <Route path="/map"
-              element={<Map comTem={comTem} map={map} />} />
+              element={<Map comTem={comTem} map={map} userName={userName} token={token} />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </BrowserRouter>
