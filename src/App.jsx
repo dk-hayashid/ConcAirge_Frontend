@@ -55,7 +55,11 @@ function App(props) {
     <body>
       <main>
         <BrowserRouter>
-          <ResponsiveAppBar token={token} setToken={setToken} />
+          <ResponsiveAppBar 
+            token={token} 
+            setToken={setToken} 
+            userName={userName}
+          />
           <Routes>
             <Route exact path="/"
               element={<Home changeComTem={changeComTem} />} />
@@ -65,7 +69,7 @@ function App(props) {
                 changeMap={changeMap}
                 email={userName} />} />
             <Route path="/map"
-              element={<Map comTem={comTem} map={map} userName={userName} />} />
+              element={<Map comTem={comTem} map={map} userName={userName} token={token} />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </BrowserRouter>
