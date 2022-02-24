@@ -36,7 +36,7 @@ export default function StandardImageList(Props) {
           var itemData = [
               {
                 img: 'images/clothes/tops/heattech.png',
-                title: '高断熱インナー',
+                title: 'ヒートテック',
                 cloth:0.2,
                 id:new Date().getTime(),
               },
@@ -113,7 +113,7 @@ export default function StandardImageList(Props) {
           var itemData = [
             {
               img: 'images/clothes/tops/heattech.png',
-              title: '高断熱インナー',
+              title: 'ヒートテック',
               cloth:0.2,
               id:new Date().getTime(),
             },
