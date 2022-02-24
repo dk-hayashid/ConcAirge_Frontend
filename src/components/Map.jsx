@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 
 export default function Map(props) {
     const Base64 = ({ data }) => <img src={`data:image/jpeg;base64,${data}`} width="100%" />
+    console.log(props)
     return (
         <Container maxWidth="md" sx={{ marginTop: 20, backgroundColor:"#FBF8F1" }}>
             <Grid container spacing={5} alignItems="center" justifyContent="center">
@@ -21,7 +22,7 @@ export default function Map(props) {
                 </Grid>
 
                 <Grid item>
-                    <Feedbackbuttons />
+                    <Feedbackbuttons userName={props.userName} comTem={props.comTem} />
                 </Grid>
             </Grid>
         </Container>
