@@ -326,7 +326,23 @@ function Form(props) {
 
                 <Grid item style={{ backgroundColor: '#FBF8F1' }}
                 > 
-                <Button variant="contained" sx={"background-color:#54BAB9;color:black;"} size="large"　onClick={handleSubmit}>送信</Button></Grid>
+                <Button 
+                    variant="contained" 
+                    sx={{
+                        backgroundColor:"#54BAB9",
+                        color:"black",
+                        "&:hover":{
+                            opacity:0.6,
+                            backgroundColor:"#54BAB9"
+                          },
+                          "&:active":{
+                            opacity:0.3,
+                            backgroundColor:"#54BAB9"
+                          }
+                        
+                    }} 
+                    size="large"　
+                    onClick={handleSubmit}>送信</Button></Grid>
             </Grid>
         </Container>
         // </ThemeProvider>
