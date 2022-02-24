@@ -53,7 +53,7 @@ let theme = createTheme({
 function Form(props) {
 
     //user.fashion: 最低限の下着類は初期値として入れておく(下着0.04+ソックス0.03+革靴0.03)
-    const [user, setUser] = useState({ age: "34", height: "173", weight: "87.4", sex: "male", fashion: 1.24 });
+    const [user, setUser] = useState({ age: "34", height: "173", weight: "87.4", sex: "male", fashion: 1.24, email: props.email});
 
     const navigate = useNavigate();
 
@@ -78,8 +78,9 @@ function Form(props) {
                     console.log(response.data);
                     props.changeComTem(response.data['ComfortTemperature']);
                     props.changeMap(response.data['Map']);
-                });
-        navigate('/map');
+                    navigate('/map');
+                }
+                );
     }
 
 
