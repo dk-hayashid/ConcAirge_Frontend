@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
+// http://localhost:3000/auth/verification
 
 
 import {
@@ -44,47 +45,76 @@ function Verification() {
     })
   }
   return (
-    <Container maxWidth="md" sx={{ marginTop: 20 }}>
-      <Typography variant='h3' align="center">認証</Typography>
-      <Grid container spacing={5} alignItems="center" justifyContent="center">
-        <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
-          <Typography variant="h5" align="center">📧</Typography>
+    <Container maxWidth="md" sx={{ marginTop: 10,marginBottom: 10,backgroundColor: '#EFEFEF' }}>
+      <Grid container spacing={2} alignItems="center" justifyContent="center">
+        <Grid item>
+          <Typography variant='h3' align="center">認証</Typography>
         </Grid>
-        <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}>
+        <Grid item xs={12}></Grid>
+      </Grid>
+      <Grid container spacing={2} alignItems="center" justifyContent="center">
+         <Grid item xs={1}></Grid>
+        <Grid item xs={10}>
           <TextField
             required
             fullWidth
             id="email"
             name="email"
-            label="メールアドレス"
+            label="📧メールアドレス"
             type="email"
             autoFocus
             onChange={changedEmailHandler}
-            style={{ backgroundColor: 'yellow' }}
           />
         </Grid>
-        <Grid item xs={12} md={3} style={{ backgroundColor: 'blue' }}>
-          <Typography variant="h5" align="center">📱</Typography>
-        </Grid>
-        <Grid item xs={12} md={9} style={{ backgroundColor: '#e91e63' }}>
+        <Grid item xs={1}></Grid>
+        <Grid item xs={1}></Grid>
+        <Grid item xs={10}>
           <TextField
             required
             fullWidth
             id="verification"
             name="verification"
-            label="認証コード"
+            label="📱認証コード"
             type="text"
             autoFocus
             onChange={changedVerificationCodeHandler}
-            style={{ backgroundColor: 'yellow' }}
           />
         </Grid>
-        <Grid item style={{ backgroundColor: '#e91e63' }}>
-          <Button variant="contained" size="large" onClick={verifyCode}>送信</Button>
+        <Grid item xs={1} ></Grid>
+        <Grid item>
+          <Button variant="contained"           
+          sx={{
+            backgroundColor:"#54BAB9",
+            color:"black",
+            "&:hover":{
+              opacity:0.6,
+              cursor: "pointer",
+              backgroundColor:"#54BAB9"
+            },
+            "&:active":{
+              opacity:0.3,
+              cursor: "pointer",
+              backgroundColor:"#54BAB9"
+            }
+          }} size="large" onClick={verifyCode}>送信</Button>
         </Grid>
-        <Grid item style={{ backgroundColor: '#e91e63' }}>
-          <Button variant="outlined" size="large" onClick={() => { navigate("/auth/sign_up") }}>サインアップ</Button>
+        <Grid item>
+          <Button variant="contained" sx={{
+            backgroundColor:"#fafafa",
+            color:"black",
+            "&:hover":{
+                      opacity:0.6,
+                      cursor: "pointer",
+                      backgroundColor:"#b2dfdb",
+                    },
+            "&:active":{
+                      opacity:0.3,
+                      cursor: "pointer",
+                      backgroundColor:"#b2dfdb",
+                    }
+          }}   size="large" onClick={() => { navigate("/auth/sign_up") }}>登録に戻る</Button>
         </Grid>
+        <Grid item xs={12}></Grid>
       </Grid>
     </Container>
   )

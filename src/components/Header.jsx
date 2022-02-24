@@ -147,9 +147,23 @@ const ResponsiveAppBar = (props) => {
                                     </Button>
                                 ))}
                             </Box>
-
                             {props.token === 'guestuser' ? 
-                                (<Button variant="contained" size="large" onClick={logoutPage}>サインイン</Button>) :
+                                (<Button variant="contained" sx={{
+                                    backgroundColor:"#F7ECDE",
+                                    color:"black",
+                                    "&:hover":{
+                                        opacity:0.8,
+                                        cursor: "pointer",
+                                        backgroundColor:"#e0f2f1",
+                                      },
+                                    "&:active":{
+                                        opacity:0.3,
+                                        cursor: "pointer",
+                                        backgroundColor:"#e0f2f1",
+                                      }
+                                
+                                }} 
+                                    size="large" onClick={logoutPage}>サインイン</Button>) :
                                 (
                             <Box sx={{ flexGrow: 0 }}>
                                 <Tooltip title="Open settings">

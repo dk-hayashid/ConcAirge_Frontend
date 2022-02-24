@@ -19,35 +19,35 @@ import {
 import InputAdornment from '@mui/material/InputAdornment';
 import Box from '@mui/material/Box';
 
-let theme = createTheme({
-    typography: {
-      fontFamily: ['Raleway, Arial','Kosugi',].join(','),
+// let theme = createTheme({
+//     typography: {
+//       fontFamily: ['Raleway, Arial','Kosugi',].join(','),
       
-    },
-    components: {
-      MuiCssBaseline: {
-        styleOverrides: `
-          @font-face {
-            font-family: 'Kosugi';
-            font-style: normal;
-            font-display: swap;
-            font-weight: 900;
+//     },
+//     components: {
+//       MuiCssBaseline: {
+//         styleOverrides: `
+//           @font-face {
+//             font-family: 'Kosugi';
+//             font-style: normal;
+//             font-display: swap;
+//             font-weight: 900;
             
-            unicodeRange: 'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF',
-          },
+//             unicodeRange: 'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF',
+//           },
         
-            ::-webkit-scrollbar{
-                width: 15px;
-            },
-            ::-webkit-scrollbar-thumb {
-                background-color: #276976;
-                border-radius: 10px;
-            }
-        `,
-      },
-    },
-  });
-  theme = responsiveFontSizes(theme);//文字サイズのレスポンシブ対応
+//             ::-webkit-scrollbar{
+//                 width: 15px;
+//             },
+//             ::-webkit-scrollbar-thumb {
+//                 background-color: #276976;
+//                 border-radius: 10px;
+//             }
+//         `,
+//       },
+//     },
+//   });
+//   theme = responsiveFontSizes(theme);//文字サイズのレスポンシブ対応
 
 
 function Form(props) {
@@ -146,7 +146,7 @@ function Form(props) {
     */
     const myitemcolor='#54BAB9';
     const mybackgroundcolor='#FBF8F1';
-    const mytextboxcolor='F6F6F6';
+    const mytextboxcolor='#F6F6F6';
 
     //myitemcolor   #26C6DA 
     //このどっちか　#54BAB9 #00CED1
@@ -154,7 +154,7 @@ function Form(props) {
     
     
     return (
-        <ThemeProvider theme={theme}>
+        // <ThemeProvider theme={theme}>
         <Container maxWidth="md" style={{ backgroundColor: mybackgroundcolor }} sx={{ marginTop: 20, }}>
             
             <Grid container spacing={4} alignItems="center" justifyContent="center">
@@ -328,7 +328,7 @@ function Form(props) {
                 <Button variant="contained" sx={"background-color:#54BAB9;color:black;"} size="large"　onClick={handleSubmit}>送信</Button></Grid>
             </Grid>
         </Container>
-        </ThemeProvider>
+        // </ThemeProvider>
     )
 }
 
