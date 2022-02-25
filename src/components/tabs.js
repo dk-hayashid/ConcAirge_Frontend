@@ -4,7 +4,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import BasicButtons from './button'
 import ImageList from './imagelist'
 
 function TabPanel(props) {
@@ -57,11 +56,16 @@ export default function BasicTabs(props) {
           onChange={handleChange} 
           aria-label="basic tabs example" 
           variant="fullWidth"
-          sx={{backgroundColor:'#CFD8DC'}}
+          sx={{backgroundColor:'#ECEFF1',}}
+          TabIndicatorProps={{
+            style: {
+              backgroundColor: "#54BAB9"
+             }
+            }}
           >
-          <Tab label="Tops" {...a11yProps(0)} />
-          <Tab label="Bottoms" {...a11yProps(1)} />
-          <Tab label="Others" {...a11yProps(2)} />
+          <Tab label={<span style={{ color: '#54BAB9',fontWeight:'bold' }}>Tops</span>} {...a11yProps(0)} />
+          <Tab label={<span style={{ color: '#54BAB9',fontWeight:'bold' }}>Bottoms</span>} {...a11yProps(1)} />
+          <Tab label={<span style={{ color: '#54BAB9',fontWeight:'bold' }}>Others</span>} {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0} >

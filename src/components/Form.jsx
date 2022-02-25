@@ -11,44 +11,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import BasicTabs from './tabs';
 import Clothedlist from './clothed';
-import {
-    createTheme,
-    responsiveFontSizes,
-    ThemeProvider,
-  } from '@mui/material/styles';
 import InputAdornment from '@mui/material/InputAdornment';
 import Box from '@mui/material/Box';
-
-// let theme = createTheme({
-//     typography: {
-//       fontFamily: ['Raleway, Arial','Kosugi',].join(','),
-      
-//     },
-//     components: {
-//       MuiCssBaseline: {
-//         styleOverrides: `
-//           @font-face {
-//             font-family: 'Kosugi';
-//             font-style: normal;
-//             font-display: swap;
-//             font-weight: 900;
-            
-//             unicodeRange: 'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF',
-//           },
-        
-//             ::-webkit-scrollbar{
-//                 width: 15px;
-//             },
-//             ::-webkit-scrollbar-thumb {
-//                 background-color: #276976;
-//                 border-radius: 10px;
-//             }
-//         `,
-//       },
-//     },
-//   });
-//   theme = responsiveFontSizes(theme);//文字サイズのレスポンシブ対応
-
 
 function Form(props) {
 
@@ -105,7 +69,7 @@ function Form(props) {
         },
         {
             img: 'images/clothes/tops/heattech.png',
-            title: 'ヒートテック',
+            title: '高断熱インナー',
             cloth:0.2,
             id:new Date().getTime()+2,
         },
@@ -122,9 +86,6 @@ function Form(props) {
       setcloth(new_clothed_list);
       const new_fashion=user.fashion+cloth.cloth;
       setUser({ ...user, fashion: new_fashion });
-      //alert('追加された衣服のclo値は'+cloth.cloth+'で、現時点の着衣量合計は'+new_fashion+'です。')
-      //alert("id:"+cloth.id)
-      //alert(cloth);
     }
     
     
@@ -135,8 +96,6 @@ function Form(props) {
         setcloth(removed_clothed_list);
         const new_fashion=user.fashion-cloth.cloth;
         setUser({ ...user, fashion: new_fashion });
-        //alert('現時点の着衣量合計は'+new_fashion+'です。')
-        //alert("id:"+cloth.id)
       }
 
     /*
@@ -278,8 +237,17 @@ function Form(props) {
                         borderRadius: 2,
                         p:2,
                     }}>
-                        <Typography variant="h5" margin="normal" align="center" sx={{ l: 0 }}>選択済み衣服</Typography>
+                        <Typography variant="h5" margin="normal" align="center" sx={{ l: 0 }}>今の服装</Typography>
                     </Box>
+                </Grid>
+
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1', opacity:1 } }
+                >
+                    <Typography variant="h6" margin="normal" align="center" sx={{ l: 0 }}>今現在のあなたの服装です。クリックで選択を解除できます。<br></br>不足がある場合は"衣服選択"欄から追加してください。</Typography>
+                </Grid>
+
+                <Grid item xs={12} md={3} style={{ backgroundColor: '#FBF8F1', opacity:0 } }
+                >
                 </Grid>
                 <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1' }}
                 >
@@ -300,14 +268,15 @@ function Form(props) {
                         borderRadius: 2,
                         p:2,
                     }}>
-                        <Typography variant="h5" margin="normal" align="center" sx={{ l: 0 }}>着衣量</Typography>
+                        <Typography variant="h5" margin="normal" align="center" sx={{ l: 0 }}>衣服選択</Typography>
                     </Box>
                     
                 </Grid>
 
                 {/*服装選択パネル位置調整用の空コンポーネント*/ }
-                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1', opacity:0 } }
+                <Grid item xs={12} md={9} style={{ backgroundColor: '#FBF8F1', opacity:1 } }
                 >
+                    <Typography variant="h6" margin="normal" align="center" sx={{ l: 0 }}>今現在着用している衣服を下部のパネルから選択してください。</Typography>
                 </Grid>
                 <Grid item xs={12} md={3} style={{ backgroundColor: '#FBF8F1', opacity:0 } }
                 >
