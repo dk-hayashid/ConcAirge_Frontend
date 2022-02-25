@@ -76,11 +76,11 @@ export default function ClothedList(Props) {
                   sx={{
                     background:
                       // 'rgba(0,0,0,0.2)'
-                      'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, ' +
-                      'rgba(0,0,0,0.1) 70%, rgba(0,0,0,0) 100%)',
+                      'linear-gradient(to top, rgba(0,0,0,0.5) 0%, ' +
+                      'rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
                   }}
                   title={item.title}
-                  position="top"
+                  position="bottom"
               />
               
     

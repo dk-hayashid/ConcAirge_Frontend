@@ -36,7 +36,7 @@ export default function StandardImageList(Props) {
           var itemData = [
               {
                 img: 'images/clothes/tops/heattech.png',
-                title: 'ヒートテック',
+                title: '高断熱インナー',
                 cloth:0.2,
                 id:new Date().getTime(),
               },
@@ -113,7 +113,7 @@ export default function StandardImageList(Props) {
           var itemData = [
             {
               img: 'images/clothes/tops/heattech.png',
-              title: 'ヒートテック',
+              title: '高断熱インナー',
               cloth:0.2,
               id:new Date().getTime(),
             },
@@ -244,7 +244,7 @@ export default function StandardImageList(Props) {
                   // 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, ' +
                   // 'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
                   'linear-gradient(to top, rgba(0,0,0,0.5) 0%, ' +
-                  'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+                  'rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
                 WebkitTextFillColor:'white',
               }}
               title={item.title}
