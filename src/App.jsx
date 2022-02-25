@@ -107,8 +107,6 @@ function App(props) {
             userName={userName}
           />
           <Routes>
-            <Route exact path="/"
-              element={<Home changeComTem={changeComTem} />} />
             <Route
               path="/form"
               element={<Form changeComTem={changeComTem}

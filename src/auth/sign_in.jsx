@@ -54,8 +54,7 @@ function SignIn(props) {
         setPassword('')
         console.log("OK, signIn");
         props.setToken(accessToken);
-        navigate('/');
-
+        navigate('/form');
       },
       onFailure: (err) => {
         alert('NG, Login please check email, password');
@@ -79,7 +78,7 @@ function SignIn(props) {
 
   const guestLogin = () => {
     props.setToken('guestuser');
-    navigate('/');
+    navigate('/form');
   }
 
   const myitemcolor='#54BAB9';

@@ -50,7 +50,6 @@ const ResponsiveAppBar = (props) => {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const navigate = useNavigate();
     const pages = {
-        "ホーム": () => { navigate('/'); },
         "レコメンド": () => { navigate('/form'); }
     };
     
