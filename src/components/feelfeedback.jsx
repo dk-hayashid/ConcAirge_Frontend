@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';//並び方決めるやつ
-import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';//笑顔アイコン
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';//苦しいアイコン
 import axios from 'axios';
 import Button from '@mui/material/Button';
 
-function feedbackbutton (){
-    return(
-        <IconButton aria-label="Cold" size='large'>
-        <SentimentVeryDissatisfiedIcon fontSize='inherit'/>
-        <label>Too cold</label>
-      </IconButton>
-    );
-}
 
 export default function Feedbackbuttons(props) {
 
