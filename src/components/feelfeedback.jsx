@@ -21,7 +21,8 @@ export default function Feedbackbuttons(props) {
     .then(
         response => {
             console.log(response.data);
-        });
+          });
+        props.setDone('done');
   }
   return (
     
