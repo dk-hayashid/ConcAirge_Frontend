@@ -164,7 +164,6 @@ function Form(props) {
                         label="身長を入力してください。"
                         name="height"
                         onChange={handleChange}
-                        autoFocus
                         style={{ backgroundColor: mytextboxcolor }}
                         InputProps={{
                             endAdornment: <InputAdornment position="end">cm</InputAdornment>,
@@ -193,7 +192,6 @@ function Form(props) {
                         label="体重を入力してください。"
                         name="weight"
                         onChange={handleChange}
-                        autoFocus
                         style={{ backgroundColor: mytextboxcolor }}
                         InputProps={{
                             endAdornment: <InputAdornment position="end">kg</InputAdornment>,

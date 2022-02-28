@@ -85,7 +85,7 @@ function SignIn(props) {
   const mybackgroundcolor='#FBF8F1';
   const mytextboxcolor='F6F6F6';
   const mybackgroundcolor_gray='#EFEFEF';
-  // const mybackgroundcolor_gray='#FBF8F1';こっちのほうがよい？
+  // const mybackgroundcolor_gray='#FBF8F1'; //こっちのほうがよい？
 
   return (
     // <Box>
@@ -138,7 +138,6 @@ function SignIn(props) {
             name="password"
             label="🔓パスワード"
             type="password"
-            autoFocus
             onChange={changedPasswordHandler}
             style={{ backgroundColor: mytextboxcolor }}
           />
