@@ -77,9 +77,6 @@ function App(props) {
       <ThemeProvider theme={theme}>
       <body>
         <main>
-          
-          {/* <h1>ようこそConcAirgeサービスへ！利用するにはログインしてね！</h1> */}
-          {/* <img src="./images/logo.png" align="center" width="50%"></img> */}
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<SignIn setToken={setToken} setUserName={setUserName} />} />
@@ -88,15 +85,12 @@ function App(props) {
               <Route path="*" element={<Page404 />} />
             </Routes>
           </BrowserRouter>
-          
-
         </main>
       </body>
       </ThemeProvider>
     )
   }
   return (
-
     <ThemeProvider theme={theme}>
     <body>
       <main>
@@ -104,16 +98,21 @@ function App(props) {
           <ResponsiveAppBar 
             token={token} 
             setToken={setToken} 
-            userName={userName}
-          />
+            userName={userName} />
           <Routes>
             <Route
               path="/form"
-              element={<Form changeComTem={changeComTem}
-                changeMap={changeMap}
-                email={userName} />} />
-            <Route path="/map"
-              element={<Map comTem={comTem} map={map} userName={userName} token={token} />} />
+              element={<Form 
+                          changeComTem={changeComTem}
+                          changeMap={changeMap}
+                          email={userName} />} />
+            <Route 
+              path="/map"
+              element={<Map 
+                          comTem={comTem} 
+                          map={map} 
+                          userName={userName} 
+                          token={token} />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </BrowserRouter>

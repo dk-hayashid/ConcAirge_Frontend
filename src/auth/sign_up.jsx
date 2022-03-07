@@ -5,20 +5,18 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-
 import {
   CognitoUserPool,
   CognitoUserAttribute
 } from "amazon-cognito-identity-js"
 import { awsConfiguration } from '../awsConfiguration'
 
+
 const userPool = new CognitoUserPool({
   UserPoolId: awsConfiguration.UserPoolId,
   ClientId: awsConfiguration.ClientId,
 })
 
-//const SignUp: React.FC = () => {
 export default function Signup() {
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
@@ -50,18 +48,14 @@ export default function Signup() {
   }
 
   return (
-    <Container maxWidth="md" sx={{ marginTop: 10,marginBottom: 10  }} style={{ backgroundColor: '#EFEFEF' }}>
+    <Container maxWidth="md" sx={{ marginTop: 10}} style={{ backgroundColor: '#EFEFEF' }}>
       <Grid container spacing={2} alignItems="center" justifyContent="center">
         <Grid item>
           <Typography variant='h3' align="center">メンバー登録</Typography>
-          {/* <Box textAlign={'center'}>
-          <img src="./images/logo.png" width="50%"></img>
-          </Box> */}
         </Grid>
         <Grid item xs={12}></Grid>
       </Grid>
-      
-      {/*  */}
+
       <Grid container spacing={2} alignItems="center" justifyContent="center">
         <Grid item xs={1}></Grid>
         <Grid item xs={10}>
@@ -77,7 +71,8 @@ export default function Signup() {
           />
         </Grid>
         <Grid item xs={1}></Grid>
-        <Grid item xs={1}></Grid>
+
+        <Grid item xs={1}></Grid>        
         <Grid item xs={10}>
           <TextField
             required
@@ -86,61 +81,54 @@ export default function Signup() {
             name="password"
             label="🔓パスワード"
             type="password"
-            autoFocus
             onChange={changedPasswordHandler}
           />
         </Grid>
         <Grid item xs={1}></Grid>
+
         <Grid item>
-          <Button variant="contained" 
-          sx={{
-            backgroundColor:"#54BAB9",
-            color:"black",
-            "&:hover":{
-              opacity:0.6,
-              cursor: "pointer",
-              backgroundColor:"#54BAB9"
-            },
-            "&:active":{
-              opacity:0.3,
-              cursor: "pointer",
-              backgroundColor:"#54BAB9"
-            }
-          }}
-          size="large" onClick={signUp}>メールアドレス認証</Button>
+          <Button variant="contained"
+            sx={{
+              backgroundColor: "#54BAB9",
+              color: "black",
+              "&:hover": {
+                opacity: 0.6,
+                cursor: "pointer",
+                backgroundColor: "#54BAB9"
+              },
+              "&:active": {
+                opacity: 0.3,
+                cursor: "pointer",
+                backgroundColor: "#54BAB9"
+              }
+            }}
+            size="large" onClick={signUp}>メールアドレス認証</Button>
         </Grid>
+        
         <Grid item>
-          <Button variant="contained" 
-          sx={{
-            backgroundColor:"#fafafa",
-            color:"black",
-            "&:hover":{
-                      opacity:0.6,
-                      cursor: "pointer",
-                      backgroundColor:"#b2dfdb",
-                    },
-            "&:active":{
-                      opacity:0.3,
-                      cursor: "pointer",
-                      backgroundColor:"#b2dfdb",
-                    }
-          }}  
-          size="large" onClick={() => { navigate("/") }}>サインインはこちら</Button>
+          <Button variant="contained"
+            sx={{
+              backgroundColor: "#fafafa",
+              color: "black",
+              "&:hover": {
+                opacity: 0.6,
+                cursor: "pointer",
+                backgroundColor: "#b2dfdb",
+              },
+              "&:active": {
+                opacity: 0.3,
+                cursor: "pointer",
+                backgroundColor: "#b2dfdb",
+              }
+            }}
+            size="large" onClick={() => { navigate("/") }}>サインインはこちら</Button>
         </Grid>
+
         <Grid item xs={12}></Grid>
       </Grid>
     </Container>
-
-    // <div className="remix__page">
-    //   <h1 style={{ textAlign: 'left' }}>サインアップ</h1>
-    //   <input type="text" placeholder="email" onChange={changedEmailHandler} /><br />
-    //   <input type="text" placeholder="password" onChange={changedPasswordHandler} /><br />
-    //   <button onClick={signUp}>Submit</button>
-    //   <button onClick={()=>{navigate("/")}}>SignIn</button>
-    // </div>
   )
 }
-// export default SignUp
 
 
 

@@ -1,19 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import {
-  createTheme,
-  responsiveFontSizes,
-  ThemeProvider,
-} from '@mui/material/styles';
-
-//import '../App.css'
-
 import {
   CognitoUserPool,
   CognitoUser,
@@ -43,7 +34,6 @@ function SignIn(props) {
       Username: email,
       Pool: userPool
     })
-
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: (result) => {
         console.log('result: ' + result)
@@ -66,31 +56,18 @@ function SignIn(props) {
     })
   }
 
-  // デバッグ用
-  const checkLogin = () => {
-    const cognitoUser = userPool.getCurrentUser()
-    if (cognitoUser) {
-      console.log('OK, sign in')
-    } else {
-      console.log('not, signing in')
-    }
-  }
-
   const guestLogin = () => {
     props.setToken('guestuser');
     navigate('/form');
   }
 
-  const myitemcolor='#54BAB9';
-  const mybackgroundcolor='#FBF8F1';
   const mytextboxcolor='F6F6F6';
   const mybackgroundcolor_gray='#EFEFEF';
-  // const mybackgroundcolor_gray='#FBF8F1'; //こっちのほうがよい？
 
   return (
-    // <Box>
     
-    <Container maxWidth="md" sx={{ marginTop: 10 ,marginBottom: 10 ,backgroundColor: mybackgroundcolor_gray, p:8}}>
+    <Container maxWidth="md" sx={{ marginTop: 10, backgroundColor: mybackgroundcolor_gray, p:8}}>
+      
       <Grid container spacing={2} alignItems="center" justifyContent="center">
         <Grid item>
         <Box textAlign={'center'}>
@@ -98,12 +75,10 @@ function SignIn(props) {
         </Box>
         </Grid>
         <Grid item xs={12}></Grid>
+        <Grid item xs={12}></Grid>
       </Grid>
-      {/* <Typography variant='h3' align="center">sign in</Typography> */}
+      
       <Grid container spacing={2} alignItems="center" justifyContent="center">
-        {/* <Grid item xs={12} md={3}>
-          <Typography variant="h5" align="center">📧</Typography>
-        </Grid> */}
         <Grid item xs={1} ></Grid>
         <Grid item xs={10} >
           <TextField
@@ -119,16 +94,7 @@ function SignIn(props) {
           />
         </Grid>
         <Grid item xs={1}></Grid>
-        {/* <Grid item xs={12} md={3}>
-          <Box sx={{
-            backgroundColor: myitemcolor,
-            height:'auto',
-            borderRadius: 2,
-            p:2,
-          }}>
-            <Typography variant="h5"align="center">🔓</Typography>
-          </Box>
-        </Grid> */}
+
         <Grid item xs={1}></Grid>
         <Grid item xs={10}>
           <TextField
@@ -143,7 +109,7 @@ function SignIn(props) {
           />
         </Grid>
         <Grid item xs={1}></Grid>
-        {/* <Grid item xs={3}></Grid> */}
+        
         <Grid item>
           <Box textAlign='center'>
           <Button variant="contained" sx={{
@@ -164,6 +130,7 @@ function SignIn(props) {
           size="large" onClick={signIn}>サインイン</Button>
           </Box>
         </Grid>
+
         <Grid item>
           <Box textAlign='center'>
           <Button variant="contained" sx={{
@@ -183,7 +150,6 @@ function SignIn(props) {
               size="large" onClick={() => { navigate("/auth/sign_up") }}>登録はこちら</Button>
           </Box>
         </Grid>
-        {/* <Grid item xs={3}></Grid> */}
       </Grid>
       
       <Grid container spacing={2} alignItems="center" justifyContent="center">
@@ -193,7 +159,6 @@ function SignIn(props) {
       </Grid>
       
     </Container>
-    // </Box>
   )
 }
 
