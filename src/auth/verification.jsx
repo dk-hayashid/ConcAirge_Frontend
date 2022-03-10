@@ -5,15 +5,12 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-
-// http://localhost:3000/auth/verification
-
-
 import {
   CognitoUserPool,
   CognitoUser
 } from "amazon-cognito-identity-js"
 import { awsConfiguration } from '../awsConfiguration'
+
 
 const userPool = new CognitoUserPool({
   UserPoolId: awsConfiguration.UserPoolId,
@@ -52,8 +49,9 @@ function Verification() {
         </Grid>
         <Grid item xs={12}></Grid>
       </Grid>
+
       <Grid container spacing={2} alignItems="center" justifyContent="center">
-         <Grid item xs={1}></Grid>
+        <Grid item xs={1}></Grid>
         <Grid item xs={10}>
           <TextField
             required
@@ -67,6 +65,7 @@ function Verification() {
           />
         </Grid>
         <Grid item xs={1}></Grid>
+
         <Grid item xs={1}></Grid>
         <Grid item xs={10}>
           <TextField
@@ -81,6 +80,7 @@ function Verification() {
           />
         </Grid>
         <Grid item xs={1} ></Grid>
+
         <Grid item>
           <Button variant="contained"           
           sx={{
@@ -98,6 +98,7 @@ function Verification() {
             }
           }} size="large" onClick={verifyCode}>送信</Button>
         </Grid>
+
         <Grid item>
           <Button variant="contained" sx={{
             backgroundColor:"#fafafa",
@@ -114,6 +115,7 @@ function Verification() {
                     }
           }}   size="large" onClick={() => { navigate("/auth/sign_up") }}>登録に戻る</Button>
         </Grid>
+        
         <Grid item xs={12}></Grid>
       </Grid>
     </Container>
